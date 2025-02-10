@@ -2,13 +2,61 @@
     "hondenmok": {
         "id": 1,
         "description": "Een mok in het thema van een hond.",
-        "price": 1,
+        "price": 4.99,
         "icon": "hondenmok.jpeg",
         "increment": 1,
         "discounted": true,
-        "discountPrice": 0.5,
-        "discountFrom": 2,
-        "discountIncrement": 2,
+        "discountPrice": 4.50,
+        "discountFrom": 3,
+        "discountIncrement": 3,
+        "hidden": false
+    },
+    "haakje kat": {
+        "id": 2,
+        "description": "Een haakje in de vorm van een kat.",
+        "price": 1.50,
+        "icon": "haakje kat.jpeg",
+        "increment": 1,
+        "discounted": true,
+        "discountPrice": 1.35,
+        "discountFrom": 3,
+        "discountIncrement": 3,
+        "hidden": false
+    },
+    "plakbandhouder kat": {
+        "id": 3,
+        "description": "Plakbandhouder Kat.",
+        "price": 2.99,
+        "icon": "plakbandhouderkat.jpeg",
+        "increment": 1,
+        "discounted": true,
+        "discountPrice": 2.70,
+        "discountFrom": 3,
+        "discountIncrement": 3,
+        "hidden": false
+    },
+    "(eigen foto huisdier) wandpanelen": {
+        "id": 4,
+        "description": "Wandpanelen met foto van jouw huisdier.",
+        "price": 39.99,
+        "icon": "wandpanelen.jpeg",
+        "increment": 1,
+        "discounted": true,
+        "discountPrice": 35.99,
+        "discountFrom": 3,
+        "discountIncrement": 3,
+        "hidden": false
+    },
+    "hond deurstop": {
+        "id": 5,
+        "description": "Een deurstop in de vorm van een hond.",
+        "price": 4.89,
+        "icon": "hondendeurstop.jpeg",
+        "increment": 1,
+        "discounted": true,
+        "discountPrice": 4.50,
+        "discountFrom": 3,
+        "discountIncrement": 3,
         "hidden": false
     }
 }
