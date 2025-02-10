@@ -15,7 +15,7 @@
         "id": 2,
         "description": "Een haakje in de vorm van een kat.",
         "price": 1.50,
-        "icon": "haakje kat.jpeg",
+        "icon": "haakjekat.jpeg",
         "increment": 1,
         "discounted": true,
         "discountPrice": 1.35,
