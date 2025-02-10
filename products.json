@@ -1,0 +1,14 @@
+{
+    "hondenmok": {
+        "id": 1,
+        "description": "Een mok in het thema van een hond.",
+        "price": 1,
+        "icon": "hondenmok.jpeg",
+        "increment": 1,
+        "discounted": true,
+        "discountPrice": 0.5,
+        "discountFrom": 2,
+        "discountIncrement": 2,
+        "hidden": false
+    }
+}

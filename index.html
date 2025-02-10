@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="nl" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-home</title>
+    <link rel="icon" href="./meta/icon.jpg">
+    <meta name="keywords" content="Mini, Home, cheap, dog, cat, dogs, cats">
+    <meta name="description" content="Mini-home is a website for businesses and consumers to purchase small goods for a low price.">
+    <meta name="author" content="Mini-hone">
+    <style>
+        header {
+            background-color: #E9998E;
+            height: 10vh;
+            width: 100wh;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        .header-text {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer {
+            width: 100vw;
+            height: 10vh;
+            color: white;
+            background-color: #8EB99E;
+            padding-top: 0px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .footer-p2 {
+            font-size: 1.5rem;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .main-div {
+            height: 80vh;
+            width: 100vw;
+            display: flex;
+        }
+
+        .logo {
+            color: #E2B4D0;
+            font-size: 3rem;
+        }
+
+        .checkout-button {
+            background: rgba(255, 255, 255, 1) url('./img/checkout-icon.png') no-repeat center center;
+            background-size: cover;
+            height: 50px;
+            width: 50px;
+            border: none;
+            position: absolute;
+            top: 10vh;
+            left: 95vw;
+        }
+
+        .search-button {
+            background: rgba(255, 255, 255, 1) url('./img/search-icon.png') no-repeat center center;
+            height: 40px;
+            width: 40px;
+            background-size: cover;
+            border: none;
+            position: relative;
+            left: 225px;
+            top: 15px;
+        }
+
+        .search-bar {
+            position: relative;
+            height: 40px;
+            width: 400px;
+            border: 2px solid black;
+            left: 200px;
+        }
+
+        .checkout-button:hover {
+            box-shadow: 0 0 5px 2px rgba(211, 166, 194, 0.7);
+        }
+
+        .white-text {
+            color: white;
+        }
+
+        .big-font {
+            font-size: 2rem;
+        }
+
+        .left-align {
+            margin-right: auto;
+        }
+
+        .right-align {
+            margin-left: auto;
+        }
+
+        .center-align {
+            align-self: center;
+        }
+
+        .invisible {
+            display: none;
+        }
+
+        .clickable:hover {
+            cursor: pointer;
+        }
+
+        #dropdown {
+            position: relative;
+            top: 60px;
+            left: -685px;
+        }
+
+        .styling-class-1 {
+            position: relative;
+            top: 60px;
+            left: -450px;
+        }
+
+        .mid-font {
+            font-size: 1.5rem;
+        }
+        
+        .product-div {
+            background-color: #D3E6ED;
+            height: 43vh;
+            width: 90vw;
+            position: absolute;
+            top: 28vh;
+            left: 3.5vw;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .product-display {
+            background-color: white;
+            height: 43vh;
+            width: 25vw;
+        }
+
+        .product-img {
+            height: 85%;
+            width: 100%;
+        }
+
+        .add-to-cart {
+            position: relative;
+            top: -1.55%;
+            width: 100%;
+            height: 15%;
+            background-color: #C2DBBE;
+            border: none;
+        }
+
+        .navigation > button {
+            border: 1px solid #C3DED5;
+            height: 5vh;
+            width: 5vh;
+            margin: 4px 2px;
+            text-align: center;
+            border-radius: 50%;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 80vh;
+            left: 44vw;
+        }
+
+        .current {
+            background-color: #C39FC3;
+        }
+
+        .inactive {
+            background-color: white;
+        }
+
+        #cart-count {
+            background-color: red;
+            border-radius: 20px;
+            font-size: 1.8em;
+            position: relative;
+            color: white;
+            border-color: black;
+            top: -45%;
+            left: 45%;
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript" src="https://cookieconsent.popupsmart.com/src/js/popper.js"></script><script> window.start.init({Palette:"palette7",Mode:"banner bottom",Theme:"classic",Message:"This website stores data in localstorage to make sure that you can access and use the website. Please consent to this.",Location:"./privacy-policy.html",LinkText:"Read more about this.",ButtonText:"Accept",Time:"5",})</script>
+    <header>
+        <p2 class="header-text"><strong>Online besteld? Dan is retour helaas niet mogelijk.</strong></p2>
+    </header>
+    <div class="main-div">
+        <div class="top-bar">
+            <p1 class="logo">
+                <strong>Mini-home</strong>
+            </p1>
+            <button class="checkout-button clickable" onclick="window.location.href='./checkout.html'">
+                <p1 id="cart-count">0</p1>
+            </button>
+            <input id="search-bar" type="text" class="search-bar mid-font" placeholder="Zoek iets moois voor in uw huis...">
+            <button id="search-button" class="search-button clickable"></button>
+        </div>
+        <div class="under-bar">
+            <p2 id="dropdown" class="big-font clickable invisible" activated="false">Alle categorieën V</p2>
+            <p3 class="center-align styling-class-1 invisible" id="search-results">0 Resultaten gevonden voor zoekopdracht x.</p3>
+        </div>
+        <div class="product-div">
+            <div class="product-display" id="product-display-1">
+                <img src="" id="product-img-1" class="product-img">
+                <button class="add-to-cart white-text clickable mid-font">Toevoegen aan winkelwagen</button>
+            </div>
+            <div class="product-display" id="product-display-2">
+                <img src="" id="product-img-2" class="product-img">
+                <button class="add-to-cart white-text clickable mid-font">Toevoegen aan winkelwagen</button>
+            </div>
+            <div class="product-display" id="product-display-3">
+                <img src="" id="product-img-3" class="product-img">
+                <button class="add-to-cart white-text clickable mid-font">Toevoegen aan winkelwagen</button>
+            </div>
+        </div>
+        <div class="navigation">
+            <button class="clickable inactive" id="nav-1">1</button>
+            <button class="clickable current" id="nav-2">2</button>
+            <button class="clickable inactive" id="nav-3">3</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="wrapper">
+            <p2 class="footer-p2">
+                <strong>© 17 januari 2025. Deze website is eigendom van Mini-home. Alle rechten voorbehouden.</strong>
+            </p2>
+            <p2 class="footer-p2">&nbsp | &nbsp</p2>
+            <a href="./privacy-policy.html">
+                <strong>Privacy beleid</strong>
+            </a>
+            <p class="footer-p2">&nbsp | &nbsp</p2>
+            <a href="./robots.txt">
+                <strong>robots.txt</strong>
+            </a>
+        </div>
+    </footer>
+    <script>
+        let products = [];
+        let filtered = [];
+        let indexed = [];
+        let pages = null;
+        let category = 'any';
+
+        if (window.localStorage.getItem('cartCount') == undefined) {
+            window.localStorage.setItem('cartCount', '0');
+        }
+
+        let currentCartCount = parseInt(window.localStorage.getItem('cartCount'));
+
+        if (currentCartCount == 0) {
+            document.getElementById('cart-count').classList.add('invisible');
+        }
+
+        let currentCart = window.localStorage.getItem('cart');
+
+        if (currentCart == undefined) {
+            window.localStorage.setItem('cart', '[]');
+        }
+
+        document.getElementById('cart-count').innerText = currentCartCount;
+
+        document.getElementById('dropdown').addEventListener('click', (ev) => {
+            if (document.getElementById('dropdown').activated == 'true') {
+                document.getElementById('dropdown').innerText = 'Alle categorieën V';
+                document.getElementById('dropdown').activated = 'false';
+            } else {
+                document.getElementById('dropdown').innerText = 'Alle categorieën ^';
+                document.getElementById('dropdown').activated = 'true';
+            }
+        })
+
+        document.getElementById('nav-1').addEventListener('click', (ev) => {
+            shift(true);
+        });
+
+        document.getElementById('nav-3').addEventListener('click', (ev) => {
+            shift(false);
+        });
+
+        document.getElementById('search-button').addEventListener('click', (ev) => {
+            let query = document.getElementById('search-bar').value.replace(',', ' ').replace('.', ' ').split(' ');
+
+            if (query.length == 0) {
+                filtered = products;
+                listProducts(parseInt(document.getElementById('nav-2').innerText));
+                return;
+            }
+
+            let productsFound = {};
+            
+            for (let i = 0; i < query.length; i++) {
+                const keyword = query[i];
+
+                if (indexed[keyword] !== undefined) {
+                    for (let j = 0; j < indexed[keyword].length; j++) {
+                        let found = indexed[keyword][j];
+                        if (productsFound[found] == undefined) {
+                            productsFound[found] = 1;
+                        } else {
+                            productsFound[found] += 1;
+                        }
+                    }
+                }
+            }
+
+            if (document.getElementById('search-results').classList.contains('invisible')) {
+                document.getElementById('search-results').classList.remove('invisible');
+            }
+
+            if (JSON.stringify(productsFound) == '{}') {
+                document.getElementById('search-results').innerText = `0 Resultaten gevonden voor zoekopdracht ${document.getElementById('search-bar').value}.`;
+                filtered = products;
+                listProducts(parseInt(document.getElementById('nav-2').innerText));
+            } else {
+                document.getElementById('search-results').innerText = `${Object.keys(productsFound).length} Resultaten gevonden voor zoekopdracht ${document.getElementById('search-bar').value}.`;
+                const sortedProducts = Object.entries(productsFound)
+                .sort((a, b) => a[1] - b[1])
+                .map(([key]) => key);
+                filtered = [];
+                for (let j  = 0; j < sortedProducts.length; j++) {
+                    for (let k = 0; k < products.length; k++) {
+                        if (sortedProducts[j] == products[k][0]) {
+                            filtered.push(products[k]);
+                        }
+                    }
+                }
+                listProducts(parseInt(document.getElementById('nav-2').innerText));
+            }
+        });
+
+        function renderProduct(slot, data) {
+            let icon = data[4];
+
+            document.getElementById('product-img-' + slot).src = './products/' + icon;
+            document.getElementById('product-display-' + slot).product = JSON.stringify(data);
+        }
+
+        function shift(inverse) {
+            let page = parseInt(document.getElementById('nav-1').innerText);
+            if (inverse) {
+                if (page !== 1) {
+                    page -= 1;
+                }
+            } else {
+                if (page !== pages) {
+                    page += 1;
+                }
+            }
+
+            if (pages == 1) {
+                document.getElementById('nav-1').innerText = page;
+                document.getElementById('nav-2').innerText = page;
+                document.getElementById('nav-3').innerText = page;
+            } else {
+                if (page == 1) {
+                    document.getElementById('nav-1').innerText = page;
+                    document.getElementById('nav-2').innerText = page;
+                    document.getElementById('nav-3').innerText = page + 1;
+                } else if (page == pages) {
+                    document.getElementById('nav-1').innerText = page - 1;
+                    document.getElementById('nav-2').innerText = page;
+                    document.getElementById('nav-3').innerText = page;
+                } else {
+                    document.getElementById('nav-1').innerText = page - 1;
+                    document.getElementById('nav-2').innerText = page;
+                    document.getElementById('nav-3').innerText = page + 1;
+                }
+            }
+
+            listProducts(page);
+        }
+
+        function listProducts(page) {
+            let pageIdx = page - 1;
+            let idx1 = pageIdx * 3;
+            let idx2 = pageIdx * 3 + 1;
+            let idx3 = pageIdx * 3 + 2;
+
+            if (filtered[idx1] == undefined) {
+                renderProduct(1, [null, null, null, null, 'placeholder.png']);
+            } else {
+                renderProduct(1, filtered[idx1]);
+            }
+
+            if (filtered[idx2] == undefined) {
+                renderProduct(2, [null, null, null, null, 'placeholder.png']);
+            } else {
+                renderProduct(2, filtered[idx2]);
+            }
+
+            if (filtered[idx3] == undefined) {
+                renderProduct(3, [null, null, null, null, 'placeholder.png']);
+            } else {
+                renderProduct(3, filtered[idx3]);
+            }
+        }
+
+        fetch('./products.json')
+        .then(response => response.json())
+        .then(data => {
+            pages = Math.ceil(Object.values(data).length / 3);
+
+            if (pages == 1) {
+                document.getElementById('nav-1').innerText = '1';
+                document.getElementById('nav-2').innerText = '1';
+                document.getElementById('nav-3').innerText = '1';
+            } else {
+                document.getElementById('nav-1').innerText = '1';
+                document.getElementById('nav-2').innerText = '1';
+                document.getElementById('nav-3').innerText = '2';
+            }
+
+            for (let i = 0; i < Object.values(data).length; i++) {
+                let name = Object.keys(data)[i];
+                let values = Object.values(data)[i];
+                let id = values.id;
+                let price = values.price;
+                let description = values.description;
+                let icon = values.icon;
+                let increment = values.increment;
+                let discounted = values.discounted;
+                let discountPrice = values.discountPrice;
+                let discountFrom = values.discountFrom;
+                let discountIncrement = values.discountIncrement;
+                let hidden = values.hidden;
+
+                if (!hidden) {
+                    products.push([name, id, price, description, icon, increment, discounted, discountPrice, discountFrom, discountIncrement]);
+
+                    let joint = name + ' ' + description;
+                    
+                    for (const keyword of joint.replace(',', ' ').replace('.', ' ').split(' ')) {
+                        if (keyword !== '') {
+                            if (indexed[keyword] == undefined) {
+                                indexed[keyword] = [name];
+                            } else {
+                                indexed[keyword].push(name);
+                            }
+                        }
+                    }
+                }
+            }
+
+            filtered = products;
+            listProducts(1);
+        })
+
+        for (const button of document.querySelectorAll('button[class="add-to-cart white-text clickable mid-font"]')) {
+            button.addEventListener('click', (ev) => {
+                let product = JSON.parse(button.parentElement.product);
+                let cart = JSON.parse(window.localStorage.getItem('cart'));
+                
+                let flag = false;
+
+                for (let i = 0; i < cart.length; i++) {
+                    if (cart[i][0] == product[0]) {
+                        cart[i][1] += product[5];
+                        flag = true;
+                        break;
+                    }
+                }
+
+                if (!flag) {
+                    cart.push([product[0], product[5]]);
+                }
+
+                window.localStorage.setItem('cart', JSON.stringify(cart));
+
+                let cartCount = parseInt(window.localStorage.getItem('cartCount'));
+
+                if (cartCount == undefined) {
+                    cartCount = 0;
+                }
+
+                cartCount += product[5];
+
+                window.localStorage.setItem('cartCount', cartCount);
+
+                document.getElementById('cart-count').innerText = cartCount;
+            });
+        }
+    </script>
+</body>
+</html>

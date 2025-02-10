@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="nl" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-home</title>
+    <link rel="icon" href="./meta/icon.jpg">
+    <meta name="keywords" content="Mini, Home, cheap, dog, cat, dogs, cats">
+    <meta name="description" content="Mini-home is a website for businesses and consumers to purchase small goods for a low price.">
+    <meta name="author" content="Mini-hone">
+    <style>
+        header {
+            background-color: #E9998E;
+            height: 10vh;
+            width: 100wh;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        .header-text {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .footer {
+            width: 100vw;
+            height: 10vh;
+            color: white;
+            background-color: #8EB99E;
+            padding-top: 0px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .footer-p2 {
+            font-size: 1.5rem;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .main-div {
+            height: 80vh;
+            width: 100vw;
+            display: flex;
+        }
+
+        .logo {
+            color: #E2B4D0;
+            font-size: 3rem;
+        }
+
+        .shopping-button {
+            background: rgba(255, 255, 255, 1) url('./img/shopping-icon.png') no-repeat center center;
+            background-size: cover;
+            height: 50px;
+            width: 50px;
+            border: none;
+            position: absolute;
+            top: 10vh;
+            left: 95vw;
+        }
+
+        .shopping-button:hover {
+            box-shadow: 0 0 5px 2px rgba(211, 166, 194, 0.7);
+        }
+
+        .checkout-div {
+            padding: 20px;
+            height: 65vh;
+            width: 30vw;
+            display: flex;
+            top: 15vh;
+            left: 35vw;
+            align-self: center;
+            background-color: #B2CFED;
+            position: absolute;
+            overflow-y: scroll;
+            flex-direction: column;
+            border: 2px solid black;
+        }
+
+        .list-item-1 {
+            background-color: #E3A8A4;
+        }
+
+        .list-item-2 {
+            background-color: #90A3EF;
+        }
+
+        .list-item {
+            width: 100%;
+            height: 75px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .white-text {
+            color: white;
+        }
+
+        .big-font {
+            font-size: 2rem;
+        }
+
+        .overflow-p {
+            font-size: 15rem;
+            visibility: hidden;
+        }
+
+        .left-align {
+            margin-right: auto;
+        }
+
+        .right-align {
+            margin-left: auto;
+        }
+
+        .center-align {
+            align-self: center;
+        }
+
+        .invisible {
+            display: none;
+        }
+
+        .clickable:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p2 class="header-text"><strong>Online besteld? Dan is retour helaas niet mogelijk.</strong></p2>
+    </header>
+    <div class="main-div">
+        <div class="top-bar">
+            <p1 class="logo">
+                <strong>Mini-home</strong>
+            </p1>
+            <button class="shopping-button clickable" onclick="window.location.href='./index.html'"></button>
+        </div>
+        <div class="checkout-div">
+            <div id="items">
+                <div id="template" class="list-item-2 list-item invisible">
+                    <strong id="left-part" class="left-align white-text big-font"></strong>
+                    <strong id="center-part" class="center-align white-text big-font"></strong>
+                    <strong id="right-part" class="right-align white-text big-font"></strong>
+                </div>
+            </div>
+            <div class="list-item-1 list-item">
+                <strong class="white-text big-font" id="total">Totaal: €0,00</strong>
+            </div>
+            <div class="list-item-1 list-item">
+                <a class="big-font clickable" onclick="checkout()">
+                    <strong>Doorgaan naar afrekenen</strong>
+                </a>
+            </div>
+            <div class="list-item">
+                <p2 class="overflow-p">X</p2>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="wrapper">
+            <p2 class="footer-p2">
+                <strong>© 17 januari 2025. Deze website is eigendom van Mini-home. Alle rechten voorbehouden.</strong>
+            </p2>
+            <p2 class="footer-p2">&nbsp | &nbsp</p2>
+            <a href="./privacy-policy.html">
+                <strong>Privacy beleid</strong>
+            </a>
+            <p class="footer-p2">&nbsp | &nbsp</p2>
+            <a href="./robots.txt">
+                <strong>robots.txt</strong>
+            </a>
+        </div>
+    </footer>
+    <script>
+        let storage = {};
+
+        function createNewItem(name, id, amount, price) {
+            if (storage[name] !== undefined) {
+                let portion3 = storage[name] + amount + 'x';
+
+                document.getElementById(name).querySelector('#center-part').innerText = portion3;
+
+                storage[name] = storage[name] + amount;
+            } else {
+                let portion1 = name + ' ' + id;
+                let portion2 = '€' + price;
+                let portion3 = amount + 'x';
+
+                let clone = document.getElementById('template').cloneNode(true);
+
+                clone.id = name;
+
+                clone.querySelector('#left-part').innerText = portion1;
+                clone.querySelector('#right-part').innerText = portion2;
+                clone.querySelector('#center-part').innerText = portion3;
+
+                clone.classList.remove('invisible');
+                document.getElementById('items').appendChild(clone);
+
+                storage[name] = amount;
+            }
+        }
+
+        let totalPrice = 0;
+
+        fetch('./products.json')
+        .then(response => response.json())
+        .then(data => {
+            let cart = JSON.parse(localStorage.getItem('cart'));
+
+            if (cart == undefined) {
+                cart = [];
+            }
+
+            for (const item of cart) {
+                let tmp = data[item[0]];
+
+                let price = 0;
+
+                if (item[1] >= tmp.discountFrom && tmp.discounted) {
+                    price = tmp.discountPrice * Math.floor(item[1] / tmp.discountIncrement);
+                    price += tmp.price * item[1] % tmp.discountIncrement;
+                } else {
+                    price = tmp.price * item[1];
+                }
+
+                totalPrice += price;
+
+                createNewItem(item[0], tmp.id, item[1], price);
+            }
+
+            let totalPriceCopy = totalPrice.toString();
+
+            let decimalPart = totalPriceCopy.split('.')[1];
+            if (decimalPart == undefined) {
+                decimalPart = '';
+            }
+            decimalPart = decimalPart.padEnd(2, '0');
+
+            document.getElementById('total').innerText = 'Totaal: €' + totalPriceCopy.split('.')[0] + ',' + decimalPart;
+        })
+        .catch(err => {
+            console.log('An error occured while attempting to load the products.');
+            console.log(err);
+        })
+
+        function checkout() {
+            localStorage.setItem('cart', JSON.stringify([]));
+            window.location.href = './404.html';
+        }
+
+        function runBarCode(code) {
+            fetch('./products.json')
+            .then(response => response.json())
+            .then(data => {
+                let keys = Object.keys(data);
+                let values = Object.values(data);
+
+                for (let i = 0; i < keys.length; i++) {
+                    let key = keys[i];
+                    let value = values[i];
+
+                    if (parseInt(value.id) == code) {
+                        let price = 0;
+                        
+                        if (value.discounted && value.increment >= value.discountFrom) {
+                            price = value.discountPrice * Math.floor(value.increment / value.discountIncrement);
+                            price += value.price * value.increment % value.discountIncrement;
+                        } else {
+                            price = value.price & value.increment;
+                        }
+
+                        totalPrice += price;
+
+                        createNewItem(key, value.id, 1, price);
+                        
+                        let totalPriceCopy = totalPrice.toString();
+
+                        let decimalPart = totalPriceCopy.split('.')[1];
+                        if (decimalPart == undefined) {
+                            decimalPart = '';
+                        }
+                        decimalPart = decimalPart.padEnd(2, '0');
+
+                        document.getElementById('total').innerText = 'Totaal: €' + totalPriceCopy.split('.')[0] + ',' + decimalPart;
+                    }
+                }
+            })
+            .catch(err => {
+                console.log('An error occured while attempting to load the products.');
+                console.log(err);
+            })
+        }
+        
+        let code = '';
+
+        document.addEventListener('keypress', (ev) => {
+            if (ev.keyCode == 13) {
+                runBarCode(code);
+                code = '';
+            } else {
+                code += ev.key;
+            }
+        });
+    </script>
+</body>
+</html>
