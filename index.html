@@ -408,30 +408,21 @@
             let idx3 = pageIdx * 3 + 2;
 
             if (filtered[idx1] == undefined) {
-                document.getElementById('product-display-1').classList.add('invisible');
+                renderProduct(1, [null, null, null, null, 'placeholder.png']);
             } else {
-                if (document.getElementById('product-display-1').classList.contains('invisible')) {
-                    document.getElementById('product-display-1').classList.remove('invisible');
-                }
                 renderProduct(1, filtered[idx1]);
             }
 
             if (filtered[idx2] == undefined) {
-                document.getElementById('product-display-2').classList.add('invisible');
+                renderProduct(2, [null, null, null, null, 'placeholder.png']);
             } else {
-                if (document.getElementById('product-display-2').classList.contains('invisible')) {
-                    document.getElementById('product-display-2').classList.remove('invisible');
-                }
                 renderProduct(2, filtered[idx2]);
             }
 
             if (filtered[idx3] == undefined) {
-                document.getElementById('product-display-3').classList.add('invisible');
+                renderProduct(3, [null, null, null, null, 'placeholder.png']);
             } else {
-                 if (document.getElementById('product-display-3').classList.contains('invisible')) {
-                    document.getElementById('product-display-3').classList.remove('invisible');
-                 }
-                 renderProduct(3, filtered[idx3]);
+                renderProduct(3, filtered[idx3]);
             }
         }
 
